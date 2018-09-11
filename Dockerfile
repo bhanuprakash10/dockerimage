@@ -5,9 +5,7 @@ RUN cd /opt && git clone https://github.com/bhanuprakash10/coderepo.git && \
     cp /opt/coderepo/index.html /var/www/html/
 
 COPY service_start.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/service_start.sh
 
 # Start service
-#CMD bash -C '/usr/local/bin/service_start.sh';'bash'
-
-CMD '/usr/sbin/httpd -D FOREGROUND'
-
+CMD ["/usr/local/bin/service_start.sh"]
